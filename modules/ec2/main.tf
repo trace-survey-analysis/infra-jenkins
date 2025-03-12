@@ -84,6 +84,11 @@ resource "aws_instance" "vm_jenkins" {
     network_interface_id = aws_network_interface.nic_jenkins.id
     device_index         = 0
   }
+  root_block_device {
+    volume_size = 50
+    volume_type = "gp3"
+}
+
   tags = {
     Name = "Jenkins VM"
   }
